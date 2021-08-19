@@ -45,11 +45,12 @@ public final class LoadResourcepack extends JavaPlugin implements Listener {
 
         prompt = GsonComponentSerializer.gson().deserializeOrNull(promptRaw);
 
-        Bukkit.getPluginManager().registerEvents(this,this);
+        Bukkit.getPluginManager().registerEvents(this, this);
     }
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        e.getPlayer().setResourcePack(pack, sha1, require, prompt);
+        if (!e.getPlayer().hasResourcePack())
+            e.getPlayer().setResourcePack(pack, sha1, require, prompt);
     }
 }
