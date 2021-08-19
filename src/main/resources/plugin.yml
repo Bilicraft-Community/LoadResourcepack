@@ -1,0 +1,4 @@
+name: LoadResourcepack
+version: '${version}'
+main: com.bilicraft.loadresourcepack.LoadResourcepack
+api-version: 1.17
